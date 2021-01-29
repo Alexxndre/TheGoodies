@@ -1,9 +1,12 @@
 /**
- * Write a description of class driver here.
+ * Driver class. Uses the CustomerMenu class to display a welcome message to the screen as well as a list of avaiable 
+ * products in the vending machine. Prompts the user for a product number that relates to one of the items and allows 
+ * the user (customer) to make purchases. Updates inventory after a purchase is made.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Aaron Munford
+ * @version 1/29/21 - Java 8
  */
+
 import java.util.Scanner;
 public class TheGoodiesDriver
 {
