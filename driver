@@ -33,3 +33,44 @@ public class TheGoodiesDriver
         }
     }
 }
+/**
+ * Welcome to Goodies Vending Machine!
+What would you like to purchase today?
+product name price number
+chips 0.75 1 
+Pop corn 0.75 2 
+Pop Corners 0.75 3 
+Cheeze it 0.75 4 
+Gold Fish 0.75 5 
+Oreo Cookies 0.75 6 
+Fruit snack 0.25 7 
+Trail Mix 0.5 8 
+Nutrigrain 0.5 9 
+Peanut bar 0.5 10 
+Coke 1.25 11 
+Sprite 1.25 12 
+Sunkist 1.25 13 
+Brisk 1.25 14 
+Ginger Ale 1.25 15 
+Water 1.0 16 
+Capri Sun 0.75 17 
+Ice cream 1.0 18 
+Klondike Bars 1.25 19 
+Italian Ice 1.25 20 
+Enter an item number: 
+13
+How many would you like to buy: 
+2
+Sunkist was purchased.
+2 items were removed from the inventory.
+Would you like to buy another item? (1=y/2=n)
+1
+Enter an item number: 
+11
+How many would you like to buy: 
+3
+Coke was purchased.
+3 items were removed from the inventory.
+Would you like to buy another item? (1=y/2=n)
+2
+ */
