@@ -16,15 +16,15 @@ public class TheGoodiesDriver
         int prodNum, quant;
         int buyAgain;
         boolean order = true;
-        System.out.println(customer.welcomeMenu());
+        System.out.println(customer.welcomeMenu()); //customer menu is printed
         customer.productList();
         while (order){
-            System.out.println("Enter an item number: ");
+            System.out.println("Enter an item number: "); //user inputs the item they want to buy and the quantity wanted
             prodNum = scan.nextInt();
             System.out.println("How many would you like to buy: ");
             quant = scan.nextInt();
             customer.update(prodNum,quant);
-            System.out.println("Would you like to buy another item? (1=y/2=n)");
+            System.out.println("Would you like to buy another item? (1=y/2=n)"); //user tells the program if they want to purchase another item
             buyAgain = scan.nextInt();
             
             if (buyAgain == 2){
