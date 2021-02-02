@@ -8,7 +8,7 @@
 
 public class CustomerMenu {
 
-    
+    //creates arrays that stores the item information
     double [] prodPrice = {
             0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.25, 0.5, 0.5, 0.5, 1.25, 1.25, 1.25, 1.25, 1.25, 1.0, 0.75, 1.0, 1.25, 1.25, 0.25
         };
@@ -23,7 +23,7 @@ public class CustomerMenu {
         String welcomeMsg = "Welcome to Goodies Vending Machine!\nWhat would you like to purchase today?";
         return welcomeMsg;
     }
-
+    //welcomes the customer
 
 
     public void productList() {
@@ -38,14 +38,14 @@ public class CustomerMenu {
                 System.out.printf(prodNum[i] + " ");
                 System.out.println("");
             }
-        }
+        } //lists out the information for each item on the customer menu
     
     
     public void update(int prodNum, int quant){
         System.out.println(prodName[prodNum-1]+" was purchased.");
         System.out.println(quant+" items were removed from the inventory.");
     }
-
+ //updates the inventory after purchase is made
 
 
 
