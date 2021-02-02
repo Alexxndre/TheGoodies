@@ -3,7 +3,7 @@
  * products in the vending machine. Prompts the user for a product number that relates to one of the items and allows 
  * the user (customer) to make purchases. Updates inventory after a purchase is made.
  *
- * @author Aaron Munford
+ * @author Aaron Munford Alex Borenstain Eric Zhu
  * @version 1/29/21 - Java 8
  */
 
