@@ -6,7 +6,6 @@
  * @author Aaron Munford Alex Borenstain Eric Zhu, GoodiesCo
  * @version 1/29/21 - Java 8
  */
-
 import java.util.Scanner;
 public class TheGoodiesDriver
 {
@@ -16,23 +15,25 @@ public class TheGoodiesDriver
         int prodNum, quant;
         int buyAgain;
         boolean order = true;
-        System.out.println(customer.welcomeMenu()); //customer menu is printed
+        System.out.println(customer.welcomeMenu());
         customer.productList();
         while (order){
-            System.out.println("Enter an item number: "); //user inputs the item they want to buy and the quantity wanted
-            prodNum = scan.nextInt();
+            System.out.println("Enter an item number: ");
+            prodNum = scan.nextInt();  //user enters item they want to buy
             System.out.println("How many would you like to buy: ");
-            quant = scan.nextInt();
-            customer.update(prodNum,quant);
-            System.out.println("Would you like to buy another item? (1=y/2=n)"); //user tells the program if they want to purchase another item
-            buyAgain = scan.nextInt();
+            quant = scan.nextInt(); //user enters quantity of products bought
+            customer.update(prodNum,quant); //messages shown for where the back end will update
+            System.out.println("Would you like to buy another item? (1=y/2=n)");
+            buyAgain = scan.nextInt(); //user prompted if they want to buy another item
             
             if (buyAgain == 2){
                 order = false;
+                customer.price(); //price is shown, messages shown for where storekeeper profits will be updated
             }
         }
     }
 }
+
 /**
  * Welcome to Goodies Vending Machine!
 What would you like to purchase today?
@@ -58,19 +59,23 @@ Ice cream 1.0 18
 Klondike Bars 1.25 19 
 Italian Ice 1.25 20 
 Enter an item number: 
-13
+1
 How many would you like to buy: 
 2
-Sunkist was purchased.
+chips was purchased.
 2 items were removed from the inventory.
+2 sales were added to the sales records for that product.
 Would you like to buy another item? (1=y/2=n)
 1
 Enter an item number: 
-11
+2
 How many would you like to buy: 
 3
-Coke was purchased.
+Pop corn was purchased.
 3 items were removed from the inventory.
+3 sales were added to the sales records for that product.
 Would you like to buy another item? (1=y/2=n)
 2
+The total cost is: $3.75
+$3.75 has been added to the storekeeper's profit
  */
