@@ -12,6 +12,15 @@ public class TheGoodiesDriver
     public static void main (String [] args){
         CustomerMenu customer = new CustomerMenu();
         Scanner scan = new Scanner(System.in);
+        int totalSale = 0;
+        int [] quantRecords = {
+            0,0,0,0,0,0
+        };
+        int quantRecordsNum = 0;
+        int [] prodRecords = {
+            0,0,0,0,0,0,0
+        };
+        int prodRecordsNum=0;
         int prodNum, quant;
         int buyAgain;
         boolean order = true;
@@ -25,7 +34,10 @@ public class TheGoodiesDriver
             customer.update(prodNum,quant); //messages shown for where the back end will update
             System.out.println("Would you like to buy another item? (1=y/2=n)");
             buyAgain = scan.nextInt(); //user prompted if they want to buy another item
+            totalSale = totalSale + quant;
+            prodRecords[quantRecordsNum] = quant;
             
+            prodRecords[prodRecordsNum] = prodNum;
             if (buyAgain == 2){
                 order = false;
                 customer.price(); //price is shown, messages shown for where storekeeper profits will be updated
