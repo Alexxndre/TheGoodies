@@ -11,7 +11,13 @@ public class TheGoodiesDriver
 {
     public static void main (String [] args){
         CustomerMenu customer = new CustomerMenu();
+        ScannerReadFile data = new ScannerReadFile();
+        businessMenu business = new businessMenu();
+        data.rawData();
         Scanner scan = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
+        String menu;
+        String code;
         int totalSale = 0;
         int [] quantRecords = {
             0,0,0,0,0,0
@@ -23,6 +29,12 @@ public class TheGoodiesDriver
         int prodRecordsNum=0;
         int prodNum, quant;
         int buyAgain;
+        System.out.println("Type b for business menu and c for customer menu");
+        menu = in.nextLine();
+        if (menu.equals("c"))
+        {
+            
+        
         boolean order = true;
         System.out.println(customer.welcomeMenu());
         customer.productList();
@@ -41,6 +53,17 @@ public class TheGoodiesDriver
             if (buyAgain == 2){
                 order = false;
                 customer.price(); //price is shown, messages shown for where storekeeper profits will be updated
+            }
+        }
+    }
+        if (menu.equals("b"))
+        {
+            System.out.println("enter the code");
+            code = in.nextLine();
+            if (code.equals("1234"))
+            {
+                business.productList();
+            
             }
         }
     }
