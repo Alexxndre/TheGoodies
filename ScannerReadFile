@@ -4,7 +4,7 @@ import java.util.Scanner;
  
 public class ScannerReadFile {
  
-    public static void main(String[] args) {
+    public void rawData() {
  
         // Location of file to read
         File file = new File("data.txt");
