@@ -1,3 +1,6 @@
+package GoodiesVendingMachine;
+import java.io.File;
+import java.io.FileNotFoundException;
 /**
  * Driver class. Uses the CustomerMenu class to display a welcome message to the screen as well as a list of avaiable 
  * products in the vending machine. Prompts the user for a product number that relates to one of the items and allows 
@@ -11,13 +14,21 @@ public class TheGoodiesDriver
 {
     public static void main (String [] args){
         CustomerMenu customer = new CustomerMenu();
-        ScannerReadFile data = new ScannerReadFile();
+       // ScannerReadFile data = new ScannerReadFile();
         businessMenu business = new businessMenu();
-        data.rawData();
+       // data.rawData();
         Scanner scan = new Scanner(System.in);
         Scanner in = new Scanner(System.in);
         String menu;
         String code;
+        
+        
+        String[] products = WriteToTxtFile2("data.txt");
+        for( int i = 0; i < products.length; i = i + 1) {
+        	System.out.println(products[i]);
+        }
+        
+        
         int totalSale = 0;
         int [] quantRecords = {
             0,0,0,0,0,0
@@ -67,6 +78,31 @@ public class TheGoodiesDriver
             }
         }
     }
+    public static String[] WriteToTxtFile2(String file){
+        
+    	//counts # of lines
+    	int ctr = 0;
+    	try {
+    		Scanner s1 = new Scanner(new File(file));
+    		while(s1.hasNextLine()) {
+    			ctr = ctr + 1;
+    			s1.next();
+    		}
+    		
+    		String[] products = new String[ctr];
+    		
+    		Scanner s2 = new Scanner(new File(file));
+    		for(int i = 0; i < ctr; i = i + 1) {
+    			products[i] = s2.next();
+    		}
+    		
+    		return products;
+    	}
+    	catch  (FileNotFoundException e) {
+    		
+    	}
+    	return null;
+     }
 }
 
 /**
