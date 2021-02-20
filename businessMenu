@@ -1,36 +1,65 @@
-public class businessMenu {
- //arrays creating data for items is created
-    double balance = 0;
-    double [] prodPrice = {
-            0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.25, 0.5, 0.5, 0.5, 1.25, 1.25, 1.25, 1.25, 1.25, 1.0, 0.75, 1.0, 1.25, 1.25, 0.25
-        };
-        String [] prodName = {
-            "chips", "Pop corn", "Pop Corners", "Cheeze it", "Gold Fish", "Oreo Cookies", "Fruit snack", "Trail Mix", "Nutrigrain", "Peanut bar", "Coke", "Sprite", "Sunkist", "Brisk", "Ginger Ale", "Water", "Capri Sun", "Ice cream", "Klondike Bars", "Italian Ice", "Ice pop"
-        };
-    
-        int [] prodNum = {
-            1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21
-        };
-        int [] sold = {
-            0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-        };
- 
-        public String welcomeMenu() {
+/**
+ * Business Menu class. Has methods to display a welcome menu and a product list. Owner needs password to access which is abc123, 
+ * can view inventory, restock items, view profits
+ *
+ * @author Aaron Munford Alex Borentain Eric Zhu, GoodiesCo
+ * @version 2/19/21 - Java 8
+*/
+
+
+public class BusinessMenu {
+    CustomerMenu customer = new CustomerMenu();
+    double [] costPerCase = {25,22,22,18,18,30,15,22,31,16,18,17,16,17,21,22,15,20,15,10,16};
+    double [] inventory = {45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45};
+    double profit = 0;
+    public String password(){
+        return "abc123";
+    }
+    public void update(int prodNum, int quant){
+        inventory[prodNum-1] -= quant;
+    }
+    public String welcomeMenu() {
         String welcomeMsg = "Welcome to the Business Menu";
-        return welcomeMsg;
+        return welcomeMsg; 
     } //welcome message for user
     public void productList() { //user views the product inventory
-            System.out.printf("product name        ");
-            System.out.printf("price     ");
-            System.out.printf("number    ");
-            System.out.println(" ");
-            for (int i = 0; i < 20; i++)
-            {
-                System.out.printf("%-20s", prodName[i] + " ");
-                System.out.printf("%-10s",prodPrice[i] + " ");
-                System.out.printf("%-10s",prodNum[i] + " ");
-                System.out.println(" ");
-            
-            }
+        System.out.println("Product Name        Cost Per Case    Price     Remaining");
+        for (int i = 0; i < 20; i++)
+        {
+      
+            System.out.printf("%-20s %12f %6f %6f", customer.prodName[i], costPerCase[i], customer.prodPrice[i],inventory[i]);
+            System.out.println("");
+            if (inventory[i] < 5) System.out.println("Item "+(i+1) +" needs to be restocked"); //restock alert for items with less than 5 left
         }
+        
+    }
+    public void printOptions(){
+        System.out.println("Enter a number \n1. Restock items \n2. View profits\n3. View inventory\n4. Leave owner interface"); //user chooses action
+    }
+    public void restock(){
+        for (int i = 0; i < 20; i++)
+        {
+            inventory[i] = 45; //user restocks inventory
+        }
+    }
+    public void viewProfits(){
+        for (int i = 0; i < 20; i++)
+        {
+            profit += (45-inventory[i]) * customer.prodPrice[i];
+            profit -= (45-inventory[i]) * costPerCase[i]/45; //user views total profits made
+            
+        }
+        System.out.println("Your net profit (sales - cost of individual item) is: "+profit);
+        profit = 0;
+    }
+    public void viewInventory(){
+        System.out.println("Item number  Items remaining");
+        for (int i = 0; i < 20; i++)
+        {
+            
+            System.out.printf("%12d  %12f", i+1, inventory[i]);
+            System.out.println(); //user views items remaining for each item
+        }
+    }
+    
 }
