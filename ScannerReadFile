@@ -6,16 +6,23 @@ public class ScannerReadFile {
  
     public void rawData() {
  
+        //String token [] = new String[50];
         // Location of file to read
         File file = new File("data.txt");
- 
+
         try {
- 
+
             Scanner scanner = new Scanner(file);
- 
+
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 System.out.println(line);
+                    String token []  = line.split(",");
+                    System.out.println("data ");
+                    for (int j = 0; j < token.length; j++)
+                    {                        
+                        System.out.print(" " + token[j]);
+                    }
             }
             scanner.close();
         } catch (FileNotFoundException e) {
