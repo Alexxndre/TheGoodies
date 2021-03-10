@@ -9,8 +9,11 @@
 
 public class BusinessMenu {
     CustomerMenu customer = new CustomerMenu();
-    double [] costPerCase = {25,22,22,18,18,30,15,22,31,16,18,17,16,17,21,22,15,20,15,10,16};
-    double [] inventory = {45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45};
+    ScannerReadFile data = new ScannerReadFile();
+    String [] prodName = data.prodNameData();
+    double [] prodPrice = data.prodPriceData();
+    int [] totQuant = data.totQuantData();
+    int [] inventory = data.prodQuantData();
     double profit = 0;
     public String password(){
         return "abc123";
@@ -23,11 +26,11 @@ public class BusinessMenu {
         return welcomeMsg; 
     } //welcome message for user
     public void productList() { //user views the product inventory
-        System.out.println("Product Name        Cost Per Case    Price     Remaining");
+        System.out.println("Product Name        total Price    Price     Remaining");
         for (int i = 0; i < 20; i++)
         {
       
-            System.out.printf("%-20s %12f %6f %6f", customer.prodName[i], costPerCase[i], customer.prodPrice[i],inventory[i]);
+            System.out.printf("%-20s %12f %6f %6f", prodName[i], totQuant[i], prodPrice[i],inventory[i]);
             System.out.println("");
             if (inventory[i] < 5) System.out.println("Item "+(i+1) +" needs to be restocked"); //restock alert for items with less than 5 left
         }
@@ -46,7 +49,7 @@ public class BusinessMenu {
         for (int i = 0; i < 20; i++)
         {
             profit += (45-inventory[i]) * customer.prodPrice[i];
-            profit -= (45-inventory[i]) * costPerCase[i]/45; //user views total profits made
+            profit -= (45-inventory[i]) * prodPrice[i]/45; //user views total profits made
             
         }
         System.out.println("Your net profit (sales - cost of individual item) is: "+profit);
