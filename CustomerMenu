@@ -7,19 +7,16 @@
  */
 
 public class CustomerMenu {
- //arrays creating data for items is created
+    //arrays creating data for items is created
+    ScannerReadFile data = new ScannerReadFile();
     public double balance = 0;
-    public double [] prodPrice = {
-            0.75, 0.75, 0.75, 0.75, 0.75, 0.75, 0.25, 0.5, 0.5, 0.5, 1.25, 1.25, 1.25, 1.25, 1.25, 1.0, 0.75, 1.0, 1.25, 1.25, 0.25
-        };
-        public String [] prodName = {
-            "Chips", "Pop Corn", "Pop Corners", "Cheeze it", "Gold Fish", "Oreo Cookies", "Fruit Snack", "Trail Mix", "Nutrigrain", "Peanut Bar", "Coke", "Sprite", "Sunkist", "Brisk", "Ginger Ale", "Water", "Capri Sun", "Ice cream", "Klondike Bars", "Italian Ice", "Ice Pop"
-        };
+    public double [] prodPrice = data.prodPriceData();
+    public String [] prodName = data.prodNameData();
     
-        int [] prodNum = {
+    int [] prodNum = {
             1, 2, 3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21
         };
-        int [] sold = {
+    int [] sold = {
             0, 0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
         };
     public String customerBusiness() {
@@ -36,7 +33,7 @@ public class CustomerMenu {
             System.out.println("Product Name         Price         Number");
             for (int i = 0; i < 20; i++)
             {
-                    System.out.printf("%-20s %6f %6d", prodName[i], prodPrice[i],prodNum[i]);
+                System.out.printf("%-20s %6f %6d", prodName[i], prodPrice[i],prodNum[i]);
                 System.out.println("");
             }
         }
